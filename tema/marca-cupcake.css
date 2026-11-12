@@ -20,13 +20,15 @@
 
    CORES PARA COLOCAR NO PAINEL (Editar layout > Cores do tema)
    ----------------------------------------------------------------------------
-   A lista completa dos campos, com os valores da marca, está no TEMA.md
-   seção "Cupcake — cores do painel". Resumo:
-     #850D1C  vinho        -> tudo que hoje é #9ad0d5 (teal)
-     #9C1726  vinho claro  -> realce (hoje #eaa991)
-     #850D1C  vinho        -> hover do menu (hoje #ecb39d)
-     #FFFCF7  branco quente-> fundo da loja (hoje #fcfaed)
-     #24130F  marrom       -> fundo do cabeçalho/rodapé (hoje #fff)
+   PALETA DA MARCA (extraida do logo): verde escuro, dourado e creme.
+   A lista completa dos campos, com os nomes exatos do tema, está no TEMA.md
+   secao 2.1. Resumo:
+     #012908  verde escuro  -> tudo que hoje é #9ad0d5 (teal)
+     #053A10  verde claro   -> realces e hovers (hoje #eaa991/#ecb39d)
+     #C9A227  dourado       -> linha fina e detalhes
+     #F7E7DB  creme         -> fundo da loja (hoje #fcfaed)
+     #FBF3E9  branco quente -> cabeçalho / rodapé / newsletter
+     #0B1F0C  texto         -> nomes de produto e textos do rodape
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
@@ -234,7 +236,7 @@ html button:focus-visible,
 html input:focus-visible,
 html .product-seemore:focus-visible,
 html .buy-button:focus-visible {
-  outline: 2px solid #850D1C;
+  outline: 2px solid #012908;
   outline-offset: 2px;
 }
 

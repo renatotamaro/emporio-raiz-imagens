@@ -15,17 +15,23 @@
    3. Todos os seletores têm prefixo "html" para ganhar da main.css do tema
       independentemente da ordem em que as folhas forem carregadas.
 
+   PALETA DA MARCA (extraida do logo: verde escuro, dourado e creme)
+   ----------------------------------------------------------------------------
+     verde escuro  #012908   |  verde hover  #053A10  |  dourado  #C9A227
+     creme        #F7E7DB   |  card         #F0E1CC  |  borda    #E2D2BC
+     branco       #FBF3E9   |  texto        #0B1F0C  |  texto 2  #4A5D43
+
    CORES QUE PRECISAM SER COLOCADAS NO PAINEL (Cores e Layout)
    ----------------------------------------------------------------------------
-     Cor principal (base) ........ #850D1C   vinho
-     Realce / botão de compra .... #850D1C   vinho
-     Hover do realce ............. #9C1726   vinho claro
-     Fundo da loja ............... #FBF5EC   creme
-     Texto ....................... #24130F   marrom escuro
-     Texto secundário ............ #59382B   marrom
-     Borda ....................... #E9D9C8   areia
-     Fundo do cabeçalho .......... #FFFCF7   branco quente
-     Fundo do rodapé ............. #FFFCF7   branco quente
+     Cor principal (base) ........ #012908   verde escuro
+     Realce / botão de compra .... #012908   verde escuro
+     Hover do realce ............. #053A10   verde claro
+     Fundo da loja ............... #F7E7DB   creme
+     Texto ....................... #0B1F0C   verde quase preto
+     Texto secundário ............ #4A5D43   verde acinzentado
+     Borda ....................... #E2D2BC   areia
+     Fundo do cabeçalho .......... #FBF3E9   branco quente
+     Fundo do rodapé ............. #FBF3E9   branco quente
      Arredondamento .............. 16px      (cards e campos)
      Fonte do site ............... Montserrat
 
@@ -43,15 +49,15 @@
    (mesmos nomes usados no preview da home).
    ------------------------------------------------------------------------- */
 :root {
-  --dm-vinho: #850D1C;
-  --dm-vinho-2: #9C1726;
-  --dm-creme: #FBF5EC;
-  --dm-card: #F8EBDD;
-  --dm-branco: #FFFCF7;
-  --dm-texto: #24130F;
-  --dm-texto-2: #59382B;
-  --dm-cobre: #B75B21;
-  --dm-borda: #E9D9C8;
+  --dm-verde: #012908;
+  --dm-verde-hover: #053A10;
+  --dm-creme: #F7E7DB;
+  --dm-card: #F0E1CC;
+  --dm-branco: #FBF3E9;
+  --dm-texto: #0B1F0C;
+  --dm-texto-2: #4A5D43;
+  --dm-dourado: #C9A227;
+  --dm-borda: #E2D2BC;
 
   --dm-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --dm-corpo: 'Montserrat', var(--font_family);
@@ -69,25 +75,25 @@
    loja ignora as cores do painel.
    ---------------------------------------------------------------------------
 :root {
-  --color_base: #850D1C;
-  --color_base_hover: #9C1726;
-  --color_base_font: #FFFCF7;
-  --color_highlight: #850D1C;
-  --color_highlight_hover: #9C1726;
-  --color_highlight_font: #FFFCF7;
-  --color_font: #24130F;
-  --color_font_secondary: #59382B;
-  --color_border: #E9D9C8;
-  --color_background: #FBF5EC;
-  --color_header_bg: #FFFCF7;
-  --color_header_main_font: #24130F;
-  --color_header_second_font: #59382B;
-  --color_header_highlight: #850D1C;
-  --color_footer_bg: #FFFCF7;
-  --color_footer_main_font: #24130F;
-  --color_footer_second_font: #59382B;
-  --color_footer_highlight: #850D1C;
-  --color_footer_button: #850D1C;
+  --color_base: #012908;
+  --color_base_hover: #053A10;
+  --color_base_font: #FBF3E9;
+  --color_highlight: #012908;
+  --color_highlight_hover: #053A10;
+  --color_highlight_font: #FBF3E9;
+  --color_font: #0B1F0C;
+  --color_font_secondary: #4A5D43;
+  --color_border: #E2D2BC;
+  --color_background: #F7E7DB;
+  --color_header_bg: #FBF3E9;
+  --color_header_main_font: #0B1F0C;
+  --color_header_second_font: #4A5D43;
+  --color_header_highlight: #012908;
+  --color_footer_bg: #FBF3E9;
+  --color_footer_main_font: #0B1F0C;
+  --color_footer_second_font: #4A5D43;
+  --color_footer_highlight: #012908;
+  --color_footer_button: #012908;
   --border_radius: 16px;
 }
    ========================================================================= */
