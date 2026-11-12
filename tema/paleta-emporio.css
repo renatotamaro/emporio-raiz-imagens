@@ -1,0 +1,176 @@
+/* ============================================================================
+   EMPÓRIO RAIZ DE CALDAS — PALETA (temporário)
+   Arquivo auxiliar: aplica a paleta da marca por cima das cores atuais do
+   tema, para a loja entrar no ar com a cor certa ANTES de configurar os 25
+   campos de cor no painel.
+
+   TEMPORÁRIO: quando as cores forem aplicadas em Editar layout > Cores,
+   REMOVA este arquivo de Scripts Externos (ou apague o link). Com o painel
+   configurado ele passa a ser redundante; se ficar, anularia a escolha do
+   lojista — porque todas as regras aqui usam !important de propósito.
+
+   Aplicar em: Configuracoes > Scripts Externos (URL publica abaixo)
+   Paleta lida do logo: verde #012908 · dourado #F5DA99 · creme #F7E7DB
+   ========================================================================== */
+
+/* ---------- fundo da loja e áreas claras ---------- */
+.application,
+.foo-content > .container,
+.foo-social > .container,
+.showcase {
+  background: #F7E7DB !important;
+}
+
+.search form,
+.cart {
+  background-color: #FBF3E9 !important;
+}
+
+.news-full,
+.banner-ruler {
+  background-color: #F0E1CC !important;
+}
+
+.foo-social > .container {
+  border-color: #E2D2BC !important;
+}
+
+/* ---------- faixas escuras: topo, menu, submenu ---------- */
+.horizontal-nav > ul,
+.wrapper-nav,
+.horizontal-nav .item-level1,
+.horizontal-nav .item-level2,
+.horizontal-nav .item-level3,
+.customer {
+  background: #012908 !important;
+}
+
+.horizontal-nav:after,
+.horizontal-nav:before {
+  background: #012908 !important;
+  border-bottom-color: #012908 !important;
+}
+
+/* ---------- textos sobre o verde ---------- */
+.customer a,
+.customer-1 .orders > *,
+.horizontal-nav .link-level1,
+.horizontal-nav .link-level2,
+.horizontal-nav .link-level3,
+.newsletter h2 {
+  color: #FBF3E9 !important;
+}
+
+.horizontal-nav .item-level1:hover .link-level1,
+.horizontal-nav .item-level2:hover .link-level2,
+.horizontal-nav .item-level3:hover .link-level3 {
+  background-color: #053A10 !important;
+  color: #F5DA99 !important;
+}
+
+.customer a:hover {
+  color: #F5DA99 !important;
+}
+
+/* ---------- ícones ---------- */
+.search .search-button svg,
+.cart .cart-icon svg,
+.foo-social svg,
+.foo-contact i svg {
+  fill: #012908 !important;
+}
+
+.foo-social .icon-x {
+  border-color: #012908 !important;
+}
+
+.banner-home .slick-arrow {
+  fill: #012908 !important;
+}
+
+.banner-home .slick-arrow:hover {
+  fill: #053A10 !important;
+}
+
+.banner-home .slick-dots button {
+  background: #E2D2BC !important;
+}
+
+.banner-home .slick-dots .slick-active button {
+  background: #012908 !important;
+}
+
+/* ---------- newsletter ---------- */
+.newsletter form button {
+  background: #012908 !important;
+  color: #FBF3E9 !important;
+}
+
+.newsletter form input {
+  background-color: #FBF3E9 !important;
+  color: #0B1F0C !important;
+  border-color: #E2D2BC !important;
+}
+
+.newsletter i {
+  border-color: #F5DA99 !important;
+}
+
+.newsletter h3 {
+  color: #F5DA99 !important;
+}
+
+/* ---------- produtos ---------- */
+.product .product-name,
+.product .product-payment {
+  color: #0B1F0C !important;
+}
+
+.product .product-price {
+  color: #053A10 !important;
+}
+
+.product .product-seemore,
+.page-product .product-buy-button {
+  background-color: #012908 !important;
+  color: #FBF3E9 !important;
+}
+
+.product .product-image .discount {
+  background-color: #053A10 !important;
+}
+
+.product-1:hover:before {
+  border-color: #053A10 !important;
+}
+
+/* ---------- títulos e rodapé ---------- */
+.showcase > h2 strong {
+  color: #F5DA99 !important;
+}
+
+.foo-content h3,
+.foo-content h5,
+.foo-contact p {
+  color: #0B1F0C !important;
+}
+
+.foo-content .links-list a,
+.foo-contact a {
+  color: #0B1F0C !important;
+}
+
+.foo-rating .dep_item,
+.tagcloud #NavTagCloud a {
+  color: #4A5D43 !important;
+}
+
+/* ---------- setas dos carrosseis ---------- */
+.showcase .slick-arrow {
+  border-color: #E2D2BC !important;
+}
+
+.showcase .carousel-next:hover,
+.showcase .carousel-prev:hover {
+  fill: #012908 !important;
+}
