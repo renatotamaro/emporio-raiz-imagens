@@ -351,13 +351,14 @@ html .footer .footer-main .newsletter .btn:hover {
 
 html .footer .footer-main .social-media a { color: var(--color_footer_highlight); }
 
-html .footer .footer-main .titlep {
+html .footer .cols .box > .title {
   font-family: var(--dm-corpo);
   font-weight: 700;
   font-size: .8125rem;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--color_font);
+  margin-bottom: .875rem;
 }
 
 /* ===========================================================================
