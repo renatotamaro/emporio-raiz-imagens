@@ -10,7 +10,12 @@
    lojista — porque todas as regras aqui usam !important de propósito.
 
    Aplicar em: Configuracoes > Scripts Externos (URL publica abaixo)
-   Paleta lida do logo: verde #012908 · dourado #F5DA99 · creme #F7E7DB
+   PALETA OFICIAL (Marketing/Cores da marca.png):
+     Verde Floresta #073B25  55%  cor principal
+     Marfim        #F5EBDD  25%  fundos e contraste (com Areia #E6D5B9)
+     Dourado       #D6A52B  15%  destaques e acabamentos
+     Marrom Cafe   #513322   5%  textos (com Verde Oliva #78815B)
+     Degrade: Dourado #B8860B -> #F4D35E · Verde #0A4D2E -> #073B25
    ========================================================================== */
 
 /* ---------- fundo da loja e áreas claras ---------- */
@@ -18,21 +23,21 @@
 .foo-content > .container,
 .foo-social > .container,
 .showcase {
-  background: #F7E7DB !important;
+  background: #F5EBDD !important;
 }
 
 .search form,
 .cart {
-  background-color: #FBF3E9 !important;
+  background-color: #F5EBDD !important;
 }
 
 .news-full,
 .banner-ruler {
-  background-color: #F0E1CC !important;
+  background-color: #E6D5B9 !important;
 }
 
 .foo-social > .container {
-  border-color: #E2D2BC !important;
+  border-color: #E6D5B9 !important;
 }
 
 /* ---------- faixas escuras: topo, menu, submenu ---------- */
@@ -42,13 +47,13 @@
 .horizontal-nav .item-level2,
 .horizontal-nav .item-level3,
 .customer {
-  background: #012908 !important;
+  background: #073B25 !important;
 }
 
 .horizontal-nav:after,
 .horizontal-nav:before {
-  background: #012908 !important;
-  border-bottom-color: #012908 !important;
+  background: #073B25 !important;
+  border-bottom-color: #073B25 !important;
 }
 
 /* ---------- textos sobre o verde ---------- */
@@ -58,18 +63,18 @@
 .horizontal-nav .link-level2,
 .horizontal-nav .link-level3,
 .newsletter h2 {
-  color: #FBF3E9 !important;
+  color: #F5EBDD !important;
 }
 
 .horizontal-nav .item-level1:hover .link-level1,
 .horizontal-nav .item-level2:hover .link-level2,
 .horizontal-nav .item-level3:hover .link-level3 {
-  background-color: #053A10 !important;
-  color: #F5DA99 !important;
+  background-color: #0A4D2E !important;
+  color: #D6A52B !important;
 }
 
 .customer a:hover {
-  color: #F5DA99 !important;
+  color: #D6A52B !important;
 }
 
 /* ---------- ícones ---------- */
@@ -77,100 +82,100 @@
 .cart .cart-icon svg,
 .foo-social svg,
 .foo-contact i svg {
-  fill: #012908 !important;
+  fill: #073B25 !important;
 }
 
 .foo-social .icon-x {
-  border-color: #012908 !important;
+  border-color: #073B25 !important;
 }
 
 .banner-home .slick-arrow {
-  fill: #012908 !important;
+  fill: #073B25 !important;
 }
 
 .banner-home .slick-arrow:hover {
-  fill: #053A10 !important;
+  fill: #0A4D2E !important;
 }
 
 .banner-home .slick-dots button {
-  background: #E2D2BC !important;
+  background: #E6D5B9 !important;
 }
 
 .banner-home .slick-dots .slick-active button {
-  background: #012908 !important;
+  background: #073B25 !important;
 }
 
 /* ---------- newsletter ---------- */
 .newsletter form button {
-  background: #012908 !important;
-  color: #FBF3E9 !important;
+  background: #073B25 !important;
+  color: #F5EBDD !important;
 }
 
 .newsletter form input {
-  background-color: #FBF3E9 !important;
-  color: #0B1F0C !important;
-  border-color: #E2D2BC !important;
+  background-color: #F5EBDD !important;
+  color: #513322 !important;
+  border-color: #E6D5B9 !important;
 }
 
 .newsletter i {
-  border-color: #F5DA99 !important;
+  border-color: #D6A52B !important;
 }
 
 .newsletter h3 {
-  color: #F5DA99 !important;
+  color: #D6A52B !important;
 }
 
 /* ---------- produtos ---------- */
 .product .product-name,
 .product .product-payment {
-  color: #0B1F0C !important;
+  color: #513322 !important;
 }
 
 .product .product-price {
-  color: #053A10 !important;
+  color: #0A4D2E !important;
 }
 
 .product .product-seemore,
 .page-product .product-buy-button {
-  background-color: #012908 !important;
-  color: #FBF3E9 !important;
+  background-color: #073B25 !important;
+  color: #F5EBDD !important;
 }
 
 .product .product-image .discount {
-  background-color: #053A10 !important;
+  background-color: #0A4D2E !important;
 }
 
 .product-1:hover:before {
-  border-color: #053A10 !important;
+  border-color: #0A4D2E !important;
 }
 
 /* ---------- títulos e rodapé ---------- */
 .showcase > h2 strong {
-  color: #F5DA99 !important;
+  color: #D6A52B !important;
 }
 
 .foo-content h3,
 .foo-content h5,
 .foo-contact p {
-  color: #0B1F0C !important;
+  color: #513322 !important;
 }
 
 .foo-content .links-list a,
 .foo-contact a {
-  color: #0B1F0C !important;
+  color: #513322 !important;
 }
 
 .foo-rating .dep_item,
 .tagcloud #NavTagCloud a {
-  color: #4A5D43 !important;
+  color: #78815B !important;
 }
 
 /* ---------- setas dos carrosseis ---------- */
 .showcase .slick-arrow {
-  border-color: #E2D2BC !important;
+  border-color: #E6D5B9 !important;
 }
 
 .showcase .carousel-next:hover,
 .showcase .carousel-prev:hover {
-  fill: #012908 !important;
+  fill: #073B25 !important;
 }
