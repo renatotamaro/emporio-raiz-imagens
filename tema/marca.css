@@ -1,0 +1,415 @@
+/* ============================================================================
+   EMPÓRIO RAIZ DE CALDAS — camada de marca
+   Base: tema "Tema Padrão 3.0" (Tray, grátis, editável pelo painel)
+   Injeção: Scripts Externos da Tray — POST /external_scripts
+            {"ExternalScript":{"source":"<URL pública deste arquivo>"}}
+
+   COMO ESTE ARQUIVO FUNCIONA
+   ----------------------------------------------------------------------------
+   1. Ele NÃO redefine as cores da loja. Toda cor sai de var(--color_*) — as
+      variáveis que o painel (Cores e Layout) escreve. Assim o lojista troca a
+      cor no painel e a loja inteira acompanha, inclusive o que está aqui.
+   2. Este arquivo cuida do que o painel não controla: tipografia (Playfair
+      Display nos títulos + Montserrat no texto) e acabamento (cards, tags,
+      botões, rodapé, newsletter).
+   3. Todos os seletores têm prefixo "html" para ganhar da main.css do tema
+      independentemente da ordem em que as folhas forem carregadas.
+
+   CORES QUE PRECISAM SER COLOCADAS NO PAINEL (Cores e Layout)
+   ----------------------------------------------------------------------------
+     Cor principal (base) ........ #850D1C   vinho
+     Realce / botão de compra .... #850D1C   vinho
+     Hover do realce ............. #9C1726   vinho claro
+     Fundo da loja ............... #FBF5EC   creme
+     Texto ....................... #24130F   marrom escuro
+     Texto secundário ............ #59382B   marrom
+     Borda ....................... #E9D9C8   areia
+     Fundo do cabeçalho .......... #FFFCF7   branco quente
+     Fundo do rodapé ............. #FFFCF7   branco quente
+     Arredondamento .............. 16px      (cards e campos)
+     Fonte do site ............... Montserrat
+
+   Enquanto essas cores não estiverem no painel, a loja fica azul (#0975D4,
+   padrão de fábrica do tema). Para antecipar a paleta sem passar pelo painel,
+   descomente o bloco "PALETA FIXA" mais abaixo — e apague-o depois de configurar
+   o painel, para não anular o controle do lojista.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ---------------------------------------------------------------------------
+   TOKENS DA MARCA
+   Não substituem as variáveis do tema: são o vocabulário visual do projeto
+   (mesmos nomes usados no preview da home).
+   ------------------------------------------------------------------------- */
+:root {
+  --dm-vinho: #850D1C;
+  --dm-vinho-2: #9C1726;
+  --dm-creme: #FBF5EC;
+  --dm-card: #F8EBDD;
+  --dm-branco: #FFFCF7;
+  --dm-texto: #24130F;
+  --dm-texto-2: #59382B;
+  --dm-cobre: #B75B21;
+  --dm-borda: #E9D9C8;
+
+  --dm-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --dm-corpo: 'Montserrat', var(--font_family);
+
+  --dm-raio: 16px;
+  --dm-raio-menor: 14px;
+  --dm-sombra: 0 10px 28px rgba(36, 19, 15, .10);
+  --dm-sombra-suave: 0 2px 10px rgba(36, 19, 15, .06);
+}
+
+/* ===========================================================================
+   PALETA FIXA (opcional)
+   Descomente SOMENTE se precisar da paleta antes de configurar o painel.
+   Depois de configurar as Cores e Layout, apague este bloco: com ele ativo a
+   loja ignora as cores do painel.
+   ---------------------------------------------------------------------------
+:root {
+  --color_base: #850D1C;
+  --color_base_hover: #9C1726;
+  --color_base_font: #FFFCF7;
+  --color_highlight: #850D1C;
+  --color_highlight_hover: #9C1726;
+  --color_highlight_font: #FFFCF7;
+  --color_font: #24130F;
+  --color_font_secondary: #59382B;
+  --color_border: #E9D9C8;
+  --color_background: #FBF5EC;
+  --color_header_bg: #FFFCF7;
+  --color_header_main_font: #24130F;
+  --color_header_second_font: #59382B;
+  --color_header_highlight: #850D1C;
+  --color_footer_bg: #FFFCF7;
+  --color_footer_main_font: #24130F;
+  --color_footer_second_font: #59382B;
+  --color_footer_highlight: #850D1C;
+  --color_footer_button: #850D1C;
+  --border_radius: 16px;
+}
+   ========================================================================= */
+
+/* ===========================================================================
+   1. TIPOGRAFIA
+   ========================================================================= */
+
+html body {
+  font-family: var(--dm-corpo);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html .h1,
+html .h2,
+html .h3,
+html .h4,
+html .h5,
+html .h6 {
+  font-family: var(--dm-titulo);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+}
+
+/* títulos de seção da vitrine: "Lançamentos", "Mais vendidos"... */
+html .section-header .title-section {
+  font-family: var(--dm-titulo);
+  font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--color_font);
+}
+
+/* filete sob o título: mais fino e discreto que o padrão do tema */
+html .section-header:after {
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--color_base);
+}
+
+html .section-header.center:after { margin-left: auto; margin-right: auto; }
+
+html .page-title,
+html .title-store,
+html .block-title {
+  font-family: var(--dm-titulo);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+/* ===========================================================================
+   2. CABEÇALHO E BUSCA
+   ========================================================================= */
+
+html .header > .bg {
+  background-color: var(--color_header_bg);
+  border-bottom: 1px solid var(--color_border);
+}
+
+html .header .title-store {
+  font-size: 1.25rem;
+  letter-spacing: .01em;
+}
+
+html header .header-search-wrapper .input-search {
+  background-color: var(--dm-creme);
+  border: 1px solid var(--color_border);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+html header .header-search-wrapper .input-search:focus {
+  border-color: var(--color_base);
+  box-shadow: 0 0 0 3px rgba(133, 13, 28, .12);
+}
+
+/* ===========================================================================
+   3. VITRINES / CARDS DE PRODUTO
+   Só acabamento (borda, raio, sombra, hover). O grid é do tema — não é tocado.
+   ========================================================================= */
+
+html .list-product .item .product {
+  border: 1px solid var(--color_border);
+  border-radius: var(--dm-raio);
+  background-color: var(--dm-branco);
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+html .list-product .item .product:hover {
+  border-color: var(--color_base);
+  box-shadow: var(--dm-sombra);
+  transform: translateY(-3px);
+}
+
+html .product .product-info {
+  gap: 2px;
+  padding: .75rem .875rem .25rem;
+}
+
+html .product .product-info .product-name {
+  font-family: var(--dm-corpo);
+  font-weight: 600;
+  font-size: .9375rem;
+  line-height: 1.35;
+  color: var(--color_font);
+}
+
+html .product .product-price .price .current-price {
+  font-family: var(--dm-corpo);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color_base);
+}
+
+html .product .product-price .product-installments,
+html .product .product-price .product-has-variants {
+  color: var(--color_font_secondary);
+}
+
+/* selo "Destaque" / "Novo" */
+html .product-tags .tag.text {
+  font-family: var(--dm-corpo);
+  font-weight: 700;
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  padding: .25rem .625rem;
+  border-radius: 999px;
+  background-color: var(--color_base);
+  color: var(--color_base_font);
+}
+
+/* botão "Comprar" do card */
+html .actions .product-button {
+  font-family: var(--dm-corpo);
+  font-weight: 600;
+  font-size: .9375rem;
+  letter-spacing: .01em;
+  height: 44px;
+  border-radius: 999px;
+  margin: 0 .875rem 1rem;
+  background-color: var(--color_highlight);
+  color: var(--color_highlight_font);
+}
+
+html .actions .product-button:hover {
+  background-color: var(--color_highlight_hover);
+}
+
+/* ===========================================================================
+   4. VITRINE EM CARROSSEL — respiro lateral do último card
+   ========================================================================= */
+
+html .section-showcase.list-slide .list-product { padding-bottom: .25rem; }
+
+/* ===========================================================================
+   5. FAIXA DE VANTAGENS (frete, parcelamento, segurança...)
+   ========================================================================= */
+
+html .section-info-ruler {
+  border-top: 1px solid var(--color_border);
+  border-bottom: 1px solid var(--color_border);
+  background-color: var(--dm-branco);
+}
+
+html .section-info-ruler .item {
+  padding: 1.25rem .5rem;
+  gap: .75rem;
+}
+
+html .section-info-ruler .item .icon {
+  color: var(--color_base);
+  font-size: 1.75rem;
+}
+
+html .section-info-ruler .item .text {
+  font-size: .875rem;
+  color: var(--color_font_secondary);
+  line-height: 1.4;
+}
+
+html .section-info-ruler .item .text .featured {
+  display: block;
+  font-weight: 700;
+  color: var(--color_font);
+}
+
+/* ===========================================================================
+   6. RODAPÉ E NEWSLETTER
+   ========================================================================= */
+
+html .footer {
+  margin-top: 2.5rem;
+  border-top: 4px solid var(--color_base);
+}
+
+html .footer .footer-main .newsletter {
+  background-color: var(--dm-creme);
+  border: 1px solid var(--color_border);
+  border-radius: var(--dm-raio);
+  padding: 28px 28px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+html .footer .footer-main .newsletter .info { width: auto; }
+
+html .footer .footer-main .newsletter .info .first {
+  font-family: var(--dm-titulo);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color_font);
+}
+
+html .footer .footer-main .newsletter .info .last {
+  font-size: .875rem;
+  color: var(--color_font_secondary);
+}
+
+html .footer .footer-main .newsletter .icon-news {
+  color: var(--color_base);
+}
+
+html .footer .footer-main .newsletter .form { width: auto; }
+
+html .footer .footer-main .newsletter .field {
+  height: 44px;
+  border: 1px solid var(--color_border);
+  border-radius: 999px;
+  padding: 0 18px;
+  font-family: var(--dm-corpo);
+  font-size: .875rem;
+  background-color: var(--dm-branco);
+  color: var(--color_font);
+}
+
+html .footer .footer-main .newsletter .btn {
+  height: 44px;
+  border-radius: 999px;
+  padding: 0 24px;
+  font-family: var(--dm-corpo);
+  font-weight: 600;
+  font-size: .875rem;
+  background-color: var(--color_base);
+  color: var(--color_base_font);
+  border: 0;
+}
+
+html .footer .footer-main .newsletter .btn:hover {
+  background-color: var(--color_base_hover);
+}
+
+html .footer .footer-main .social-media a { color: var(--color_footer_highlight); }
+
+html .footer .footer-main .titlep {
+  font-family: var(--dm-corpo);
+  font-weight: 700;
+  font-size: .8125rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color_font);
+}
+
+/* ===========================================================================
+   7. BOTÕES GERAIS E CAMPOS
+   ========================================================================= */
+
+html .btn {
+  font-family: var(--dm-corpo);
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+html input.field,
+html select,
+html textarea {
+  font-family: var(--dm-corpo);
+}
+
+/* ===========================================================================
+   8. ACESSIBILIDADE — foco sempre visível
+   ========================================================================= */
+
+html a:focus-visible,
+html button:focus-visible,
+html .btn:focus-visible,
+html .product-button:focus-visible,
+html input:focus-visible {
+  outline: 2px solid var(--color_base);
+  outline-offset: 2px;
+}
+
+/* ===========================================================================
+   9. MOVIMENTO REDUZIDO
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html .list-product .item .product,
+  html .actions .product-button,
+  html header .header-search-wrapper .input-search {
+    transition: none;
+  }
+  html .list-product .item .product:hover { transform: none; }
+}
+
+/* ===========================================================================
+   10. CELULAR
+   ========================================================================= */
+
+@media (max-width: 767px) {
+  html .section-header .title-section { font-size: 1.5rem; }
+  html .footer .footer-main .newsletter { padding: 20px; }
+  html .footer .footer-main .newsletter .form { width: 100%; }
+  html .section-info-ruler .item { padding: .875rem .375rem; gap: .5rem; }
+  html .section-info-ruler .item .text { font-size: .8125rem; }
+}
