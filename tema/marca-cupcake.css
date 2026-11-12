@@ -1,0 +1,255 @@
+/* ============================================================================
+   EMPÓRIO RAIZ DE CALDAS — camada de marca
+   Base: tema **Cupcake** (Tray, grátis) — tema antigo (2016), Bootstrap,
+   SEM variáveis CSS: as cores saem de um custom.css que o painel gera.
+   Injeção: Scripts Externos — POST /external_scripts
+            {"ExternalScript":{"source":"<URL pública deste arquivo>"}}
+
+   COMO ESTE ARQUIVO FUNCIONA (leia antes de mexer)
+   ----------------------------------------------------------------------------
+   1. Ele NÃO mexe em cor. No Cupcake as cores são compiladas pelo painel em
+      custom.css (ex.: .page-product .product-buy-button{background:#9ad0d5}).
+      Se este arquivo definisse cor, o lojista trocaria a cor no painel e nada
+      aconteceria. Portanto: cor = painel; tipografia/acabamento = aqui.
+   2. O Cupcake carrega um <style> de 90 KB inline e não tem variáveis. Para
+      ganhar do tema sem depender da ordem de carregamento, os seletores usam
+      prefixo html/body (especificidade) e, onde o tema insiste, !important —
+      marcado com /* importante */ em cada regra.
+   3. Tipografia: Playfair Display nos títulos + Montserrat no corpo, no lugar
+      de Roboto / Lora / Leckerli One (a letra cursiva do Cupcake).
+
+   CORES PARA COLOCAR NO PAINEL (Editar layout > Cores do tema)
+   ----------------------------------------------------------------------------
+   A lista completa dos campos, com os valores da marca, está no TEMA.md
+   seção "Cupcake — cores do painel". Resumo:
+     #850D1C  vinho        -> tudo que hoje é #9ad0d5 (teal)
+     #9C1726  vinho claro  -> realce (hoje #eaa991)
+     #850D1C  vinho        -> hover do menu (hoje #ecb39d)
+     #FFFCF7  branco quente-> fundo da loja (hoje #fcfaed)
+     #24130F  marrom       -> fundo do cabeçalho/rodapé (hoje #fff)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Tokens da marca — só medidas e famílias, sem cor. */
+:root {
+  --dm-titulo: 'Playfair Display', Georgia, serif;
+  --dm-corpo: 'Montserrat', Roboto, Arial, sans-serif;
+  --dm-raio: 14px;
+  --dm-raio-pill: 999px;
+  --dm-transicao: .18s ease;
+}
+
+/* ===========================================================================
+   1. TIPOGRAFIA
+   ========================================================================= */
+
+html body {
+  font-family: var(--dm-corpo); /* importante */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html .h1,
+html .h2,
+html .h3,
+html .h4,
+html .h5,
+html .h6 {
+  font-family: var(--dm-titulo); /* importante */
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+
+/* título das vitrines: hoje em Leckerli One (cursiva), 3.6rem */
+html .showcase > h2 strong,
+html .showcase > h2 {
+  font-family: var(--dm-titulo); /* importante */
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+}
+
+html .showcase > h2 strong {
+  font-size: 2.5rem;
+  padding: 0 20px;
+}
+
+html .showcase > h2 {
+  text-transform: none;
+}
+
+/* ===========================================================================
+   2. CABEÇALHO, BUSCA E MENU
+   ========================================================================= */
+
+html .search .search-key {
+  font-family: var(--dm-corpo); /* importante */
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+html .search .search-key::-webkit-input-placeholder { font-family: var(--dm-corpo); }
+
+/* itens do menu horizontal */
+html .horizontal-nav .link-level1 span,
+html .horizontal-nav .link-level2 span,
+html .horizontal-nav .link-level3 span,
+html .menu-mobile .link-level1,
+html .menu-mobile .link-level2 {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 600;
+  letter-spacing: .04em;
+  font-size: 1.4rem;
+  text-transform: none;
+}
+
+/* ===========================================================================
+   3. VITRINE / CARD DE PRODUTO
+   Só acabamento: o grid e as cores continuam sendo do tema e do painel.
+   ========================================================================= */
+
+/* o card é o .product-1 dentro de .list-products/.showcase */
+html .product .product-image {
+  background: transparent; /* importante */
+  height: 200px;
+  transition: transform var(--dm-transicao);
+}
+
+html .product:hover .product-image {
+  transform: scale(1.04);
+}
+
+html .product .product-name {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  height: auto;
+  max-height: 4.1rem;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+html .product .product-price {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 700;
+  font-size: 2.1rem;
+}
+
+html .product .product-payment,
+html .product .product-installment {
+  font-family: var(--dm-corpo); /* importante */
+  font-size: 1.3rem;
+}
+
+/* "veja mais" / botão do card */
+html .product .product-seemore,
+html .product .product-buy-button {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-radius: var(--dm-raio-pill); /* importante */
+  padding: 0 1.8rem;
+  height: 4.2rem;
+  line-height: 4.2rem;
+}
+
+html .product .product-seemore:hover,
+html .product .product-buy-button:hover {
+  opacity: .9;
+}
+
+/* selo de desconto */
+html .product .product-image .discount {
+  border-radius: var(--dm-raio-pill); /* importante */
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ===========================================================================
+   4. BANNERS EM FAIXA (meio da home)
+   ========================================================================= */
+
+html .banner-ruler { border-radius: var(--dm-raio); }
+
+/* ===========================================================================
+   5. NEWSLETTER E RODAPÉ
+   ========================================================================= */
+
+html .newsletter form input {
+  border-radius: var(--dm-raio-pill); /* importante */
+  font-family: var(--dm-corpo); /* importante */
+  padding: 0 1.6rem;
+}
+
+html .newsletter form button {
+  border-radius: var(--dm-raio-pill); /* importante */
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 0 2rem;
+}
+
+html .foo-content h3,
+html .foo-content h5,
+html .foo-contact p {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+html .foo-content .links-list a,
+html .foo-contact a {
+  font-family: var(--dm-corpo); /* importante */
+  font-size: 1.3rem;
+}
+
+/* ===========================================================================
+   6. CARRINHO / CONTA
+   ========================================================================= */
+
+html .cart .cart-total {
+  font-family: var(--dm-corpo); /* importante */
+  font-weight: 600;
+}
+
+/* ===========================================================================
+   7. ACESSIBILIDADE E MOVIMENTO
+   ========================================================================= */
+
+html a:focus-visible,
+html button:focus-visible,
+html input:focus-visible,
+html .product-seemore:focus-visible,
+html .buy-button:focus-visible {
+  outline: 2px solid #850D1C;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .product:hover .product-image,
+  html .product .product-seemore,
+  html .newsletter form button { transition: none; transform: none; }
+}
+
+/* ===========================================================================
+   8. CELULAR
+   ========================================================================= */
+
+@media (max-width: 767px) {
+  html .showcase > h2 strong { font-size: 2rem; }
+  html .product .product-name { font-size: 1.4rem; max-height: 3.8rem; }
+  html .newsletter form button { width: 100%; }
+}
